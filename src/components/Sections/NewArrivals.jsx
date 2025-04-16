@@ -35,9 +35,21 @@ const NewArrivals = () => {
   return (
     <>
     <SectionHeading title={'New Arrivals'}/>
-    <div className='flex flex-wrap'>
+
+    <Carousel
+        responsive={responsive}
+        autoPlay={false}
+        swipeable={true}
+        draggable={false}
+        showDots={false}
+        infinite={false}
+        partialVisible={false}
+        itemClass={'react-slider-custom-item'}
+        className='px-8'
+      >
         {items && items?.map((item,index)=> <Card key={item?.title +index} title={item.title} imagePath={item.imagePath}/>)}
-    </div>
+
+      </Carousel>
     </>
   )
 }
