@@ -2,6 +2,9 @@ import React from 'react'
 import { Wishlist } from '../common/Wishlist'
 import { AccountIcon } from '../common/AccountIcon'
 import { CartIcon } from '../common/CartIcon'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import './Navigation.css';
+
 
 const Navigation = () => {
   return (
@@ -13,10 +16,10 @@ const Navigation = () => {
         <div className='flex flex-wrap items-center gap-10 flex-1'>
             {/*Nav items*/}
             <ul className='flex gap-14 text-gray-600 hover:text-black'>
-                <li className='text-gray-600 hover:text-black'><a href="/">Shop</a></li>
-                <li className='text-gray-600 hover:text-black'><a href="/mens">Men</a></li>
-                <li className='text-gray-600 hover:text-black'><a href="/womens">Women</a></li>
-                <li className='text-gray-600 hover:text-black'><a href="/kids">Kids</a></li>
+            <li><NavLink to='/' className={({isActive})=> isActive ? 'active-link':''}>Shop</NavLink></li>
+          <li><NavLink to='/men' className={({isActive})=> isActive ? 'active-link':''}>Men</NavLink></li>
+          <li><NavLink to='/women' className={({isActive})=> isActive ? 'active-link':''}>Women</NavLink></li>
+          <li><NavLink to='/kids' className={({isActive})=> isActive ? 'active-link':''}>Kids</NavLink></li>
             </ul>
         </div>
         <div className='flex justify-center'>
@@ -34,7 +37,7 @@ const Navigation = () => {
             <ul className='flex items-center gap-8 '>
                 <li><button ><Wishlist /></button></li>
                 <li><button ><AccountIcon /></button></li>
-                <li><a href="/cart-items"><CartIcon /></a></li>
+                <li><Link to="/cart-items"><CartIcon /></Link></li>
             </ul>
         </div>
     </nav>
